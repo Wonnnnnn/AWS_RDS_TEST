@@ -2,6 +2,7 @@ package org.example.aws_sample.service;
 
 import lombok.RequiredArgsConstructor;
 import org.example.aws_sample.dto.User.UserCreateDto;
+import org.example.aws_sample.dto.User.UserResponseDto;
 import org.example.aws_sample.dto.User.UserUpdateDto;
 import org.example.aws_sample.entity.User;
 import org.example.aws_sample.exception.ValidationCheckException;
@@ -26,11 +27,11 @@ public class UserService {
         return userRepository.findById(userId).get();
     }
     @Transactional
-    public int addUser(UserCreateDto userCreateDto){
+    public UserResponseDto addUser(UserCreateDto userCreateDto){
         validationCheck(userCreateDto);
         User user = new User(userCreateDto);
         userRepository.save(user);
-        return user.getUserId();
+        return new UserResponseDto(user.getUserId(),user.getId(),user.getName(),user.getEmail());
     }
 
 
