@@ -17,3 +17,8 @@ jobs:
         run: |
           echo "multi 1"
           echo "multi 2"
+
+      - name: github variable 사용하기
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
