@@ -28,7 +28,9 @@ jobs:
           ./gradlew clean build --warning-mode all
 
       - name: jar file name edit
-        run: mv ./build/libs/*SNAPSHOT.jar ./app.jar
+        run: |
+          mv ./build/libs/*SNAPSHOT.jar ./app.jar
+          ls
 
       - name: send jar file to ec2
         uses: appleboy/scp-action@v0.1.7
