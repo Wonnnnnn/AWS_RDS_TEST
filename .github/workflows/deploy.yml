@@ -50,8 +50,10 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: ${{secrets.EC2_PORT}}
           script: |
-            rm -rf project/cur
+            rm -rf project/cur || true
             mkdir project/cur
             mv project/tobe/app.jar project/cur
             cd project/cur
-            nohup java -jar app.jar &
+            sudo fuser -k -n tcp 8080 || true 
+            sudo nohup java -jar app.jar > ./output.log 2>&1 &
+            rm -rf /home/ubuntu/project/tobe
