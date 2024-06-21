@@ -52,5 +52,8 @@ jobs:
           script_stop: true
           script: |
             ls
-            cd project/tobe
+            cd project
+            ls
+            cd tobe
+            ls
             nohup java jar app.jar &
