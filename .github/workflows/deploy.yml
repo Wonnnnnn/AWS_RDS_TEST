@@ -54,7 +54,7 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: ${{secrets.EC2_PORT}}
           script_stop: ture
-          script: |
+          script: |  
             docker stop web-server || ture
             docker rm web-server || true
             docker pull ${{steps.login-ecr.outputs.registry}}/web-server:latest
