@@ -20,14 +20,12 @@ jobs:
           java-version: '17'
 
       - name: applicaton.yml 생성
-        run: echo ${{secrets.APPLICATION_YML}} > ./src/main/resources/application.yml
+        run: echo ${{secrets.APPLICATION2_YML}} | base64 --decode > ./src/main/resources/application.yml
 
       - name: test and build
         run: |
           chmod +x ./gradlew
           ./gradlew clean build --warning-mode all
-          ./gradlew test --scan
-
 
       - name: jar file name edit
         run: mv ./build/libs/*SNAPSHOT.jar ./app.jar
