@@ -10,8 +10,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: github repository source pull
+        uses: actions/checkout@v4
+
+      - name: jdk 17 install
+        uses: action/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
       - name: applicaton.yml 생성
+        run: echo ${{secrets.APPLICATION_YML}} > ./src/main/resources/applicaion.yml
+
+      - name: test and build
         run: |
-          pwd
-          ls /src/main
-          echo ${{secrets.APPLICATION_YML}} > ./src/main/resources/applicaion.yml
+          chmod *x ./gradlew
+          ./gradle clean build
+
+      - name: jar file name edit
+        run: mv ./build/libs/*SNAPSHOT.jar ./app.jar
+
+#      - name: send jar file to ec2
+#      - name: SSH로 ec2 access
