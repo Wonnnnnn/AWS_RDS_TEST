@@ -36,7 +36,7 @@ jobs:
 
       - name: aws ECR login
         id: login-ecr
-        uses: aws-actions/amazpn-ecr-login@v2
+        uses: aws-actions/amazon-ecr-login@v2
 
       - name: docker image cresta
         run: |
