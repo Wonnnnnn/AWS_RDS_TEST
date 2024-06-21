@@ -12,3 +12,8 @@ jobs:
     steps:
       - name: simple-action-test
         run: echo "This is the first CICD step"
+
+      - name: multiple-commands
+        run: |
+          echo "multi 1"
+          echo "multi 2"
