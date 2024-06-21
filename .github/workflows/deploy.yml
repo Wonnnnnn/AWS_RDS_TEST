@@ -39,7 +39,7 @@ jobs:
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           port: ${{secrets.EC2_PORT}}
-          source: "app.jar"
-          target: /project/tobe
+          source: ./app.jar
+          target: /home/ubuntu/project/tobe
 
 #      - name: SSH로 ec2 access
