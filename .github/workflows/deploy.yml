@@ -44,7 +44,7 @@ jobs:
           docker tag web-server ${{steps.login-ecr.outputs.registry}}/web-server:latest
 
       - name: docker image push to ecr
-        run: docker push ${{steps.login-ecr.outputs.registry}}/webserver:latest
+        run: docker push ${{steps.login-ecr.outputs.registry}}/web-server:latest
 
       - name: SSH로 ec2 access(image pull from ECR, and container execute)
         uses: appleboy/ssh-action@v1.0.3
