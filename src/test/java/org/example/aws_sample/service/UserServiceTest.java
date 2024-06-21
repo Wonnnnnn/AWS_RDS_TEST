@@ -2,7 +2,6 @@ package org.example.aws_sample.service;
 
 import org.example.aws_sample.dto.User.UserCreateDto;
 import org.example.aws_sample.dto.User.UserResponseDto;
-import org.example.aws_sample.entity.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
