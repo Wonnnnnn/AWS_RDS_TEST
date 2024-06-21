@@ -20,7 +20,7 @@ jobs:
           java-version: '17'
 
       - name: applicaton.yml 생성
-        run: echo ${{secrets.APPLICATION_YML}} > ./src/main/resources/applicaion.yml
+        run: echo ${{secrets.APPLICATION2_YML}} > ./src/main/resources/applicaion.yml
 
       - name: test and build
         run: |
