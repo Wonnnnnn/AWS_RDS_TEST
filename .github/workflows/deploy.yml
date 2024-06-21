@@ -51,5 +51,6 @@ jobs:
           port: ${{secrets.EC2_PORT}}
           script_stop: true
           script: |
+            ls
             cd /project/tobe
-            nohub java jar app.jar &
+            nohup java jar app.jar &
