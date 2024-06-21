@@ -33,7 +33,7 @@ jobs:
       - name: send jar file to ec2
         uses: appleboy/scp-action@v0.1.7
         with:
-          host: ${{ secrets.EC2_HOST }}
+          host: ${{ secrets.EC2_HOST2 }}
           username: ${{ secrets.EC2_USERNAME }}
           password: ${{ secrets.EC2_PRIVATE_KEY }}
           port: ${{secrets.EC2_PORT}}
