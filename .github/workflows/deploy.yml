@@ -30,5 +30,13 @@ jobs:
       - name: jar file name edit
         run: mv ./build/libs/*SNAPSHOT.jar ./app.jar
 
-#      - name: send jar file to ec2
+      - name: send jar file to ec2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USERNAME }}
+          password: ${{ secrets.EC2_PRIVATE_KEY }}
+          source: ./app.jar
+          target: /project/tobe
+
 #      - name: SSH로 ec2 access
