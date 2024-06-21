@@ -26,6 +26,9 @@ jobs:
         run: |
           chmod +x ./gradlew
           ./gradlew clean build
+          ./gradlew build --warning-mode all
+          ./gradlew test --scan
+
 
       - name: jar file name edit
         run: mv ./build/libs/*SNAPSHOT.jar ./app.jar
