@@ -24,7 +24,7 @@ jobs:
 
       - name: test and build
         run: |
-          chmod *x ./gradlew
+          chmod +x ./gradlew
           ./gradle clean build
 
       - name: jar file name edit
